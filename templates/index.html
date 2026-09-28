@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Citrus Leaf Disease Detection</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 650px;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon {
+        font-size: 55px;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        color: #1b5e20;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .upload-box {
+        border: 2px dashed #4caf50;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 25px;
+        background: #f8fff8;
+    }
+
+    input[type="file"] {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        background: white;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        background: #2e7d32;
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #1b5e20;
+        transform: translateY(-2px);
+    }
+
+    .result {
+        margin-top: 30px;
+        padding: 25px;
+        background: #f1f8e9;
+        border-radius: 15px;
+        border-left: 5px solid #43a047;
+    }
+
+    .result h2 {
+        color: #2e7d32;
+        margin-bottom: 18px;
+    }
+
+    .prediction {
+        font-size: 22px;
+        font-weight: bold;
+        color: #1b5e20;
+        margin-bottom: 10px;
+    }
+
+    .confidence {
+        font-size: 18px;
+        color: #555;
+    }
+
+    .footer {
+        margin-top: 25px;
+        color: #888;
+        font-size: 13px;
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<div class="container">
+
+    <div class="icon">🌿</div>
+
+    <h1>Citrus Leaf Disease Detection</h1>
+
+    <p class="subtitle">
+        AI-powered detection of citrus leaf diseases using a trained CNN model
+    </p>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+
+        <div class="upload-box">
+
+            <input
+                type="file"
+                name="file"
+                accept="image/*"
+                required
+            >
+
+        </div>
+
+        <button type="submit">
+            🔍 Predict Disease
+        </button>
+
+    </form>
+
+
+    {% if prediction %}
+
+    <div class="result">
+
+        <h2>Prediction Result</h2>
+
+        <p class="prediction">
+            🌱 {{ prediction }}
+        </p>
+
+        <p class="confidence">
+            Confidence: <strong>{{ confidence }}%</strong>
+        </p>
+
+    </div>
+
+    {% endif %}
+
+
+    <div class="footer">
+
+        Citrus Leaf Disease Detection System<br>
+        Deep Learning &nbsp;|&nbsp; CNN &nbsp;|&nbsp; Flask
+
+    </div>
+
+</div>
+```
+
+</body>
+
+</html>
